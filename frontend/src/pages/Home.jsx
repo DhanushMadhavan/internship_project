@@ -1,5 +1,6 @@
 // frontend/src/pages/Home.jsx
 import React, { useState, useEffect } from "react";
+import { asset } from "../utils/asset";
 import "../Home.css"; // keep your CSS file
 
 export default function Home() {
@@ -24,6 +25,15 @@ export default function Home() {
   const [searchDate, setSearchDate] = useState("");
   const [dayReading, setDayReading] = useState(null);
   const [searchMessage, setSearchMessage] = useState("");
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCarouselIndex((current) => (current + 1) % 3);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   async function handleSearchByDate() {
     if (!searchDate) {
@@ -74,7 +84,7 @@ export default function Home() {
     <>
       <div className="video-hero">
         <video className="hero-video" autoPlay muted loop playsInline>
-          <source src="/videos/tps-expansion.mp4" type="video/mp4" />
+          <source src={asset("videos/tps-expansion.mp4")} type="video/mp4" />
         </video>
       </div>
 
@@ -92,32 +102,46 @@ export default function Home() {
             <div className="card shadow-sm">
               <div
                 id="carouselExampleIndicators"
-                className="carousel slide"
-                data-bs-ride="carousel"
-                data-bs-interval="3000"
+                className="carousel slide home-photo-carousel"
               >
                 <div className="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                  {[0, 1, 2].map((index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className={carouselIndex === index ? "active" : ""}
+                      aria-label={`Show slide ${index + 1}`}
+                      onClick={() => setCarouselIndex(index)}
+                    />
+                  ))}
                 </div>
 
                 <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <img className="d-block w-100 img-fluid" src="/images/slide1.jpg" alt="Slide 1" />
+                  <div className={`carousel-item ${carouselIndex === 0 ? "active" : ""}`}>
+                    <img className="d-block w-100 img-fluid" src={asset("images/slide1.jpg")} alt="Slide 1" />
                   </div>
-                  <div className="carousel-item">
-                    <img className="d-block w-100 img-fluid" src="/images/slide2.jpg" alt="Slide 2" />
+                  <div className={`carousel-item ${carouselIndex === 1 ? "active" : ""}`}>
+                    <img className="d-block w-100 img-fluid" src={asset("images/slide2.jpg")} alt="Slide 2" />
                   </div>
-                  <div className="carousel-item">
-                    <img className="d-block w-100 img-fluid" src="/images/slide3.jpg" alt="Slide 3" />
+                  <div className={`carousel-item ${carouselIndex === 2 ? "active" : ""}`}>
+                    <img className="d-block w-100 img-fluid" src={asset("images/slide3.jpg")} alt="Slide 3" />
                   </div>
                 </div>
 
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  aria-label="Previous slide"
+                  onClick={() => setCarouselIndex((carouselIndex + 2) % 3)}
+                >
                   <span className="carousel-control-prev-icon"></span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  aria-label="Next slide"
+                  onClick={() => setCarouselIndex((carouselIndex + 1) % 3)}
+                >
                   <span className="carousel-control-next-icon"></span>
                 </button>
               </div>
@@ -274,13 +298,12 @@ export default function Home() {
         {/* ===== LOGO STRIP SECTION (BOTTOM) ===== */}
         <div className="logo-strip mt-4 mb-5">
           <div className="logo-row d-flex flex-wrap justify-content-center align-items-center">
-            <img src="/images/logos/india-gov.png" alt="India Gov" className="footer-logo" />
-            <img src="/images/logos/ministry-coal.png" alt="Ministry of Coal" className="footer-logo" />
-            <img src="/images/logos/coop.png" alt="International Year of Cooperatives" className="footer-logo" />
+            <img src={asset("images/logos/india-gov.png")} alt="India Gov" className="footer-logo" />
+            <img src={asset("images/logos/ministry-coal.png")} alt="Ministry of Coal" className="footer-logo" />
+            <img src={asset("images/logos/coop.png")} alt="International Year of Cooperatives" className="footer-logo" />
           </div>
 
           <div className="text-center text-white mt-3">
-            <p style={{ fontFamily: '"Times New Roman", Times, serif' }}>Designed &amp; Developed by BALAKUMARAN B</p>
             <p>Last updated : 10 Dec 2025</p>
           </div>
         </div>
@@ -298,17 +321,17 @@ export default function Home() {
 
               <h6 className="fw-bold text-white">Follow Us</h6>
               <div className="social-icons">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener">
-                  <img src="/images/social/facebook.png" className="social-img" />
+                <a href="https://www.facebook.com/NLCIndiaLimited" title="Open NLC India Limited on Facebook" aria-label="Open NLC India Limited on Facebook">
+                  <img src={asset("images/social/facebook.png")} className="social-img" alt="Facebook" />
                 </a>
-                <a href="https://www.x.com" target="_blank" rel="noopener">
-                  <img src="/images/social/x.png" className="social-img" />
+                <a href="https://x.com/NLCIndiaLimited" title="Open NLC India Limited on X" aria-label="Open NLC India Limited on X">
+                  <img src={asset("images/social/x.png")} className="social-img" alt="X" />
                 </a>
-                <a href="https://www.youtube.com/c/NLCINDIALIMITED" target="_blank" rel="noopener">
-                  <img src="/images/social/youtube.png" className="social-img" />
+                <a href="https://www.youtube.com/@NLCIndiaLimited" title="Open NLC India Limited on YouTube" aria-label="Open NLC India Limited on YouTube">
+                  <img src={asset("images/social/youtube.png")} className="social-img" alt="YouTube" />
                 </a>
-                <a href="https://www.instagram.com/_.braxton__/" target="_blank" rel="noopener">
-                  <img src="/images/social/instagram.png" className="social-img" />
+                <a href="https://www.instagram.com/nlc_india_limited/" title="Open NLC India Limited on Instagram" aria-label="Open NLC India Limited on Instagram">
+                  <img src={asset("images/social/instagram.png")} className="social-img" alt="Instagram" />
                 </a>
               </div>
             </div>

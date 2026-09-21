@@ -113,6 +113,12 @@
   margin-top: 12px;
 }
 
+.social-icons a {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 0;
+}
+
 /* FIXED CLEAN ICON SIZE */
 .social-img {
   width: 40px;
@@ -146,3 +152,8 @@
 /* small styling for the realtime/perf cards */
 .card.p-3 { padding: 14px !important; }
 .small.text-muted { font-size: 0.85rem; }
+
+/* Moderate, smooth movement between the home page photos. */
+.home-photo-carousel .carousel-item {
+  transition: transform 0.8s ease-in-out;
+}

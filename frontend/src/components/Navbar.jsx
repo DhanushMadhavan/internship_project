@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { asset } from "../utils/asset";
 import "./Navbar.css";
 
 const menu = [
@@ -110,7 +111,7 @@ export default function Navbar() {
 
       {/* LEFT — LOGO + TITLE */}
       <div className="navbar-left">
-        <img src="/images/logo.png" className="nlc-logo" alt="Logo" />
+        <img src={asset("images/logo.png")} className="nlc-logo" alt="Logo" />
 
         <div className="title-block">
           <h1 className="nlc-title">NLC India Limited</h1>

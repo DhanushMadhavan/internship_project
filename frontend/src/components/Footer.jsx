@@ -9,8 +9,8 @@ export default function Footer() {
           <p className="mb-0">
             Copyright © {new Date().getFullYear()} TPS I Expansion
           </p>
-          <p className="mb-0" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-            Designed & Developed by           BALAKUMARAN B
+          <p className="mb-0">
+            Designed &amp; Developed by DHANUSH M
           </p>
         </div>
       </footer>

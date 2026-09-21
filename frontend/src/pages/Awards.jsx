@@ -1,3 +1,5 @@
+import { asset } from "../utils/asset";
+
 export default function Awards() {
     return (
       <div className="container mt-4">
@@ -107,7 +109,7 @@ export default function Awards() {
           <div className="carousel-inner rounded shadow-sm">
             <div className="carousel-item active">
               <img
-                src="/images/awards/award1.jpg"
+                src={asset("images/awards/award1.jpg")}
                 className="d-block w-100"
                 alt="Award Slide 1"
               />
@@ -115,7 +117,7 @@ export default function Awards() {
   
             <div className="carousel-item">
               <img
-                src="/images/awards/award2.jpg"
+                src={asset("images/awards/award2.jpg")}
                 className="d-block w-100"
                 alt="Award Slide 2"
               />
@@ -123,7 +125,7 @@ export default function Awards() {
   
             <div className="carousel-item">
               <img
-                src="/images/awards/award3.jpg"
+                src={asset("images/awards/award3.jpg")}
                 className="d-block w-100"
                 alt="Award Slide 3"
               />

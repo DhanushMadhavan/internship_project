@@ -1,9 +1,11 @@
+import { asset } from "../utils/asset";
+
 export default function SalientFeatures() {
     return (
       <div className="container mt-4">
 
 <img
-  src="/images/salient-banner.jpg"
+  src={asset("images/salient-banner.jpg")}
   alt="Salient Features Banner"
   className="img-fluid mb-4 rounded shadow-sm"
 />

@@ -1,3 +1,5 @@
+import { asset } from "../utils/asset";
+
 export default function Photos() {
     return (
       <div className="container mt-4">
@@ -27,7 +29,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo1.jpg"
+                src={asset("images/gallery/photo1.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 1"
               />
@@ -38,7 +40,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo2.jpg"
+                src={asset("images/gallery/photo2.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 2"
               />
@@ -49,7 +51,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo3.jpg"
+                src={asset("images/gallery/photo3.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 3"
               />
@@ -60,7 +62,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo4.jpg"
+                src={asset("images/gallery/photo4.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 4"
               />
@@ -71,7 +73,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo5.jpg"
+                src={asset("images/gallery/photo5.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 5"
               />
@@ -82,7 +84,7 @@ export default function Photos() {
           <div className="col-md-4 mb-4">
             <div className="card shadow-sm">
               <img
-                src="/images/gallery/photo6.jpg"
+                src={asset("images/gallery/photo6.jpg")}
                 className="card-img-top"
                 alt="Gallery Photo 6"
               />
@@ -121,7 +123,7 @@ export default function Photos() {
           <div className="carousel-inner rounded shadow-sm">
             <div className="carousel-item active">
               <img
-                src="/images/gallery/slide1.jpg"
+                src={asset("images/gallery/slide1.jpg")}
                 className="d-block w-100"
                 alt="Slide 1"
               />
@@ -129,7 +131,7 @@ export default function Photos() {
   
             <div className="carousel-item">
               <img
-                src="/images/gallery/slide2.jpg"
+                src={asset("images/gallery/slide2.jpg")}
                 className="d-block w-100"
                 alt="Slide 2"
               />
@@ -137,7 +139,7 @@ export default function Photos() {
   
             <div className="carousel-item">
               <img
-                src="/images/gallery/slide3.jpg"
+                src={asset("images/gallery/slide3.jpg")}
                 className="d-block w-100"
                 alt="Slide 3"
               />

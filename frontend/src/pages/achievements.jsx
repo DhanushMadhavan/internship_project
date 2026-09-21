@@ -1,4 +1,6 @@
-export default function achievements() {
+import { asset } from "../utils/asset";
+
+export default function Achievements() {
     return (
       <div className="container mt-4">
   
@@ -27,7 +29,7 @@ export default function achievements() {
             <div className="col-md-4 mb-4" key={num}>
               <div className="card shadow-sm">
                 <img
-                  src={`/images/achievements/achievement-${num}.jpg`}
+                  src={asset(`images/achievements/achievement-${num}.jpg`)}
                   className="card-img-top"
                   alt={`Achievement ${num}`}
                   style={{ borderRadius: "4px" }}

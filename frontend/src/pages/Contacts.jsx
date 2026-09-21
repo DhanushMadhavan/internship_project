@@ -1,3 +1,5 @@
+import { asset } from "../utils/asset";
+
 export default function Contacts() {
     return (
       <div className="container mt-4">
@@ -24,7 +26,7 @@ export default function Contacts() {
         {/* CONTACT IMAGE */}
         <div className="text-center mb-4">
           <img
-            src="/images/contacts/contact-chart.jpg"
+            src={asset("images/contacts/contact-chart.jpg")}
             alt="Contact Chart"
             style={{
               width: "100%",
